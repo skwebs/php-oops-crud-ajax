@@ -105,7 +105,7 @@ $(function() {
 				contentType: false,
 				success: function(res) {
 					$("#user-img").attr('src', "./assets/img/wa-sq-user-img.png")
-					alert("success: " + res);
+					alert("Message on AJAX success:\n " + res);
 					fd = null;
 					isImageCropped = false;
 					$('#msform')[0].reset();
@@ -113,10 +113,10 @@ $(function() {
 				},
 				error: function(err) {
 					alert("err: " + err)
-				},
+				}/*,
 				complete: function(e) {
-					alert("complete: " + JSON.stringify(e));
-				}
+					//alert("complete: " + JSON.stringify(e));
+				}*/
 			});
 		}
 	})

@@ -9,7 +9,7 @@ date_default_timezone_set('Asia/Kolkata');
  * @url       http://www.codexworld.com
  * @license   http://www.codexworld.com/license
  */
-class Crud{
+class Crud26{
 	//	private $conn = false; // Check to see if the connection is active
 	private $result = array(); // Any results from a query will be stored here
 	private $myQuery = ""; // used for debugging process with SQL return
@@ -20,10 +20,8 @@ class Crud{
     private $dbUsername = "root";
     private $dbPassword = "";
     private $dbName     = "pdocrud";
-    
-    
-    public function __construct($dbname){
-	    $this->dbName = $dbname;
+
+    public function __construct(){
         if(!isset($this->pdo)){
             // Connect to the database
             try{

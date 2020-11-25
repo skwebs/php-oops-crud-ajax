@@ -19,12 +19,12 @@ class Crud{
     private $dbHost     = "localhost";
     private $dbUsername = "root";
     private $dbPassword = "";
-    private $dbName     = "pdocrud";
+    private $dbName     = "ama";
     
     
-    public function __construct($dbname){
-	    $this->dbName = $dbname;
-        if(!isset($this->pdo)){
+    public function __construct($db){
+	    $this->dbName = $db;
+	    if(!isset($this->pdo)){
             // Connect to the database
             try{
                 $conn = new PDO("mysql:host=".$this->dbHost.";dbname=".$this->dbName, $this->dbUsername, $this->dbPassword);
@@ -46,7 +46,7 @@ public function __destruct() {
         echo "There is some problem in connection: " . $e->getMessage();
     }
 }
-
+    
     /*
      * Returns rows from the database based on the conditions
      * @param string name of the table
