@@ -104,12 +104,14 @@ $(function() {
 				processData: false,
 				contentType: false,
 				success: function(res) {
-					$("#user-img").attr('src', "./assets/img/wa-sq-user-img.png")
 					alert("Message on AJAX success:\n " + res);
-					fd = null;
-					isImageCropped = false;
-					$('#msform')[0].reset();
-					$(".inp").removeClass("is-valid");
+					if(res.success){
+						$("#user-img").attr('src', "./assets/img/wa-sq-user-img.png")
+						fd = null;
+						isImageCropped = false;
+						$('#msform')[0].reset();
+						$(".inp").removeClass("is-valid");
+					}
 				},
 				error: function(err) {
 					alert("err: " + err)

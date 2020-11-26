@@ -27,7 +27,6 @@ CREATE TABLE `users` (
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 INSERT INTO `users` (`id`, `reg_num`, `first_name`, `mid_name`, `last_name`, `class`, `gender`, `dob`, `mobile`, `father`, `present_address`, `user_img`, `created`, `modified`) VALUES
-(1,	1606342450,	'Satish',	'Kumar',	'Sharma',	'7',	'Male',	'2020-11-20',	9999888800,	'Father',	'At - , Post- , Dist- , State- , Pin Code- XXXXXX',	'1606342450-20201126_034410.jpg',	'2020-11-25 22:17:16',	'2020-11-25 22:14:10')
-ON DUPLICATE KEY UPDATE `id` = VALUES(`id`), `reg_num` = VALUES(`reg_num`), `first_name` = VALUES(`first_name`), `mid_name` = VALUES(`mid_name`), `last_name` = VALUES(`last_name`), `class` = VALUES(`class`), `gender` = VALUES(`gender`), `dob` = VALUES(`dob`), `mobile` = VALUES(`mobile`), `father` = VALUES(`father`), `present_address` = VALUES(`present_address`), `user_img` = VALUES(`user_img`), `created` = VALUES(`created`), `modified` = VALUES(`modified`);
+(1,	1606342450,	'First-name',	'Middle-Name',	'Last-Name',	0,	'Gender',	'2020-00-00',	9999888800,	'Father',	'At - , Post- , Dist- , State- , Pin Code- XXXXXX',	'1606342450-20201126_034410.jpg',	'2020-11-26 13:11:44',	'2020-11-25 22:14:10');
 
--- 2020-11-25 22:18:42
+-- 2020-11-26 13:14:43
