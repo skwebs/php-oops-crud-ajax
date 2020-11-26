@@ -95,7 +95,8 @@ public function __destruct() {
             }
         }else{
             if($stmt->rowCount() > 0){
-                $data = $stmt->fetchAll();
+		     //   $data = $stmt->fetchAll();
+	            $data = $stmt->fetchAll(PDO::FETCH_ASSOC);
             }
         }
         return !empty($data)?$data:false;

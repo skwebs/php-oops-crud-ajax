@@ -113,10 +113,10 @@ $(function() {
 				},
 				error: function(err) {
 					alert("err: " + err)
-				}/*,
-				complete: function(e) {
+				}
+				//,complete: function(e) {
 					//alert("complete: " + JSON.stringify(e));
-				}*/
+				//}
 			});
 		}
 	})
