@@ -87,13 +87,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 	}
 	
 	if($action == "show_data"){
-		$users = $usr->getRows('users',
-			array(
-				'return_type'=>'single',
-				'order_by'=>'id',
-				'order_type'=>'DESC'
-			)
+		$cond = array(
+		"return_type"=>"single",
+		//"order_by"=>"id",
+		//"order_type"=>"DESC",
+		"where" => array( "reg_num" => $reg_num )
 		);
+		$users = $usr->getRows('users', $cond);
             $json = json_encode($users);
             echo $json;
             /*if(!empty($users)){

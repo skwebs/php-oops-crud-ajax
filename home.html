@@ -219,7 +219,7 @@
             <div class="d-flex align-items-center"> <a href="#" class="d-inline-block">Login</a> </div>
           </div>
           <div class="user_text">
-            <div class="font-weight-bolder mb-1"> Satish Sharma </div>
+            <div class="font-weight-bolder mb-1" id="usrName" > Satish Sharma </div>
             <table>
               <tr>
                 <td>Reg. No.</td>
@@ -256,15 +256,16 @@
       Waves.attach('.nav-link', ['waves-block']);
       Waves.attach('.dropdown-item', ['waves-block']);
       //Waves.attach('.nav-link', ['waves-block', 'waves-light']);
-
+			var reg = 1606343797, reg2 = 1606342450;
 			$.ajax("action.php", {
 				method: "post",
-				data: {reg_num : 1606342450, action : "show_data"},
+				data: {reg_num : reg2, action : "show_data"},
 			//	processData: false,
 			//	contentType: false,
 				dataType:'json',
 				success: function(res) {
 					//alert(JSON.stringify(res));
+					$("#usrName").text(res.first_name+" "+res.mid_name+" "+res.last_name);
 					$("#usrProfImg").attr("src", "./user_img/"+res.user_img);
 					$("#usrRegNum").text(res.reg_num);
 					$("#lastUpdate").text(res.modified);
