@@ -98,7 +98,7 @@ $(function() {
 			let fd = new FormData(form);
 			fd.delete("select-img");
 			fd.append('cropped_image', croppedImgBlobData, 'user.' + mimeType.slice(6));
-			$.ajax("action2.php", {
+			$.ajax("action.php", {
 				method: "post",
 				data: fd,
 				processData: false,
@@ -114,11 +114,11 @@ $(function() {
 					}
 				},
 				error: function(err) {
-					alert("err: " + err)
+					alert("err: " + JSON.stringify(err))
 				}
-				//,complete: function(e) {
-					//alert("complete: " + JSON.stringify(e));
-				//}
+				,complete: function(e) {
+					alert("complete: " + JSON.stringify(e));
+				}
 			});
 		}
 	})
