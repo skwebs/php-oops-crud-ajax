@@ -18,7 +18,6 @@
   <meta property="og:image:url" content="https://anshumemorial.in/favicon/apple-icon-180x180.png">
   <meta property="og:image:type" content="image/png">
   <meta property="og:image:alt" content="Anshu-Memorial-Academy-Logo">
-  
   <link rel="apple-touch-icon" sizes="180x180" href="favicon/apple-icon-180x180-min.png">
   <link rel="icon" type="image/png" sizes="192x192" href="favicon/android-icon-192x192-min.png">
   <link rel="shortcut icon" type="image/x-icon" href="favicon/favicon.ico">
@@ -75,7 +74,7 @@
   <!-- layout -->
   <link rel="stylesheet" href="./assets/css/layout/stk-ftr-in-btm.css?v0" />
   <link rel="stylesheet" href="./assets/css/layout/nav.css?v0">
-  <link rel="stylesheet" href="./assets/css/layout/sidebar.css?v0">
+  <link rel="stylesheet" href="./assets/css/layout/sidebar.css?v01">
   <link rel="stylesheet" href="./assets/css/layout/footer.css?v0">
   <!-- form -->
   <link rel="stylesheet" href="./assets/css/form/bs5a2-floating-label.css?v0" />
@@ -104,6 +103,14 @@
     .cta {
       background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5), 50%), url("./assets/img/web/laptop1.jpg") fixed center 100%/cover;
     }
+
+    .userDd a {
+      color: var(--bs-primary) !important;
+    }
+
+    .userDd div a:hover {
+      color: inherit !important;
+    }
   </style>
 </head>
 
@@ -117,16 +124,17 @@
         </button>
         <div class="menuContent collapse navbar-collapse collapse navbar-collapse " id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
-
-            <li class="nav-item dropdown userDd bg-primary d-none">
-              <a class="nav-link dropdown-toggle text-light" href="#" id="userDropdown"  role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Student Portal</a>
+            <!-- user specified dropdown -->
+            <li class="nav-item dropdown userDd bg-warning text-light d-none">
+              <a class="nav-link dropdown-toggle text-light" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Student Portal</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="#">Profile</a>
                 <a class="dropdown-item" href="#">Payment</a>
                 <a class="dropdown-item" href="#">Result</a>
+                <a class="dropdown-item" href="./logout.php?action=logout_user">Logout</a>
               </div>
             </li>
-
+            <!--// user specified dropdown -->
             <li class="nav-item active">
               <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a>
             </li>
@@ -139,11 +147,9 @@
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Student Portal</a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                <a class="dropdown-item" href="#">Registration</a>
+                <a class="dropdown-item" href="./registration.html">Registration</a>
                 <a class="dropdown-item" href="#">Admission</a>
                 <a class="dropdown-item" href="#">Result</a>
-                <a class="dropdown-item" href="#">Profile</a>
-                <a class="dropdown-item" href="#">Payment</a>
               </div>
             </li>
             <li class="nav-item dropdown">
@@ -162,6 +168,20 @@
     </nav>
   </header>
   <main>
+    <!-- main contents should be below -->
+    <div class="container">
+      <div class="row">
+        <div class="col-md-7 mx-auto">
+          <div class="card shadow">
+            <div class="card">
+              <form>
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--// main contents should be above -->
   </main>
   <footer class="bg-dark footer text-muted">
     <!-- footer social icons section -->
@@ -197,13 +217,18 @@
       <hr style="max-width:300px;" class="bg-muted my-1 w-50 mx-auto d-md-none"> <span class="d-block d-md-inline"> Designed &amp; Developed by <a href="https://skwebs.github.io">SKWebs</a></span> </section>
     <!-- // copyright section -->
   </footer>
-  <!-- // footer social icons section -->
-  <!-- extra -->
+  <!-- // footer section -->
+  <!--::: HELPER COMPONENTS BELOW :::-->
+  <!-- Preloader -->
   <div class="preloader"> <img class="preloader__img" src="./assets/img/ama/ama-old-128x128.png" alt="Children Future Coaching Logo">
     <div class="rounder"></div>
   </div>
+  <!--// preloader -->
+  <!-- Sidebar Components -->
   <div class="sidebar-overlay"></div>
+  <!-- sidebar section -->
   <section class="sidebar bg-light">
+    <!-- sidebar header -->
     <div class="sidebar-header border-bottom px-2 py-3">
       <!-- default/guest user section-->
       <div class="d-flex user_details guest-user"> <img width="70" class="filter-gray opacity25 my-auto border border-secondary rounded-circle" style="border-radius:50%;" src="./assets/img/ama/ama-old-128x128.png">
@@ -213,46 +238,52 @@
             <table>
               <tr>
                 <td>
-                  <h1><a class="btn btn-primary px-4 ml-2" href="#">Login User</a></h1>
+                  <h1><a class="btn btn-primary px-4 ml-2" href="login.html">Login User</a></h1>
                 </td>
               </tr>
             </table>
           </div>
         </div>
       </div>
-      <!-- Logged in user section reg-user -->
-      <div class="d-none user_details logged-user"> <img width="70" id="usrProfImg" class="my-auto border border-secondary rounded-circle" style="border-radius:50%;" src="./assets/img/ama/ama-old-128x128.png">
+      <!--// default/guest user section-->
+      <!-- Logged in user section -->
+      <div class="d-none user_details logged-user"> <img width="70" id="usrProfImg" class="my-auto border border-secondary rounded-circle" style="border-radius:50%;" src="">
         <div class="flex-grow-1 pl-2 text-muted ">
           <div class="user_text">
-            <div class="font-weight-bolder mb-1" id="usrName" > Satish Sharma </div>
+            <div class="font-weight-bolder mb-1" id="usrName"> </div>
             <table>
               <tr>
                 <td>Reg. No.</td>
                 <td>&nbsp;:&nbsp;</td>
-                <td id="usrRegNum" >1602596722 </td>
+                <td id="usrRegNum"> </td>
               </tr>
               <tr>
                 <td>Update on</td>
                 <td>&nbsp;:&nbsp;</td>
-                <td id="lastUpdate" >2020-10-15 12:27:11</td>
+                <td id="lastUpdate"></td>
               </tr>
             </table>
           </div>
         </div>
       </div>
-      <!---->
+      <!--// Logged in user section -->
     </div>
+    <!--// sidebar header -->
     <div class="clearfix"></div>
     <div class="sidebar-menu">
+      <!-- main nav cloned components, appends in below navbar class -->
       <ul class="navbar"></ul>
+      <!--::: siidebar social section :::-->
       <div class="sidebar-social d-flex justify-content-center">
         <a class="sb-fb" href="https://facebook.com/AnshuMemorialAcademy"> <i class="fa fa-facebook"></i> </a>
         <a class="sb-tw" href="https://mobile.twitter.com/AnshuMemorial"> <i class="fa fa-twitter"></i> </a>
         <a class="sb-insta" href="https://www.instagram.com/anshumemorial/"> <i class="fa fa-instagram"></i> </a>
         <a class="sb-yt" href="https://www.youtube.com/channel/UC-Y-AzTd9CCYbbUqAthmHVg"> <i class="fa fa-youtube"></i> </a>
       </div>
+      <!--// siidebar social section -->
     </div>
   </section>
+  <!--// sidebar section-->
   <script defer src="./assets/js/onload.js"></script>
   <script defer src="./assets/js/sidebar.js?v2"></script>
   <script defer src="./assets/js/init.js"></script>
@@ -261,31 +292,38 @@
       Waves.attach('.nav-link', ['waves-block']);
       Waves.attach('.dropdown-item', ['waves-block']);
       //Waves.attach('.nav-link', ['waves-block', 'waves-light']);
-			var reg = 1606343797, reg2 = 1606342450;
-			$.ajax("action.php", {
-				method: "post",
-				data: {reg_num : reg2, action : "show_data"},
-			//	processData: false,
-			//	contentType: false,
-				dataType:'json',
-				success: function(res) {
-					//alert(JSON.stringify(res));
-					$(".userDd .nav-link").text(res.first_name+" "+res.last_name).parent().removeClass("d-none");
-					$(".guest-user").removeClass("d-flex").addClass("d-none");
-					$(".logged-user").removeClass("d-none").addClass("d-flex");
-					$("#usrName").text(res.first_name+" "+res.mid_name+" "+res.last_name);
-					$("#usrProfImg").attr("src", "./user_img/"+res.user_img);
-					$("#usrRegNum").text(res.reg_num);
-					$("#lastUpdate").text(res.modified);
-					//alert(res.modified)
-				},
-				error: function(err) {
-					alert("err: " + JSON.stringify(err))
-				}
-				//,complete: function(e) {
-				//	alert("complete: " + JSON.stringify(e));
-				//}
-			});
+      $.ajax("action2.php", {
+        method: "post",
+        data: { action: "check_login" },
+        //	processData: false,
+        //	contentType: false,
+        dataType: 'json',
+        success: function(res) {
+          //alert(res["user"])
+          //alert(JSON.stringify(res.user.id));
+          if (res.isLoggedIn) {
+            $(".userDd .nav-link").text(res.user.first_name + " " + res.user.last_name).parent().removeClass("d-none");
+            $(".guest-user").removeClass("d-flex").addClass("d-none");
+            $(".logged-user").removeClass("d-none").addClass("d-flex");
+            $("#usrName").text(res.user.first_name + " " + res.user.last_name);
+            $("#usrProfImg").attr("src", "./user_img/" + res.user.user_img);
+            $("#usrRegNum").text(res.user.reg_num);
+            $("#lastUpdate").text(res.user.modified);
+            //alert(res.user.modified)
+          } else {
+            //alert("Please login fitst!");
+            if (confirm("Click on OK to Login or, click on Cancel to use as Guest User.")) {
+              window.location.href = "login.html";
+            }
+          }
+        },
+        error: function(err) {
+          alert("err: " + JSON.stringify(err))
+        }
+        //,complete: function(e) {
+        //	alert("complete: " + JSON.stringify(e));
+        //}
+      });
 
     })()
   </script>

@@ -34,6 +34,7 @@ $tblName = "users";
 
 $isImgSaved = false;
 
+$data = [];
 /**
 * Check request type,
 * if request type post then
@@ -153,7 +154,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 					 'mobile' 		=> $_POST['mobile'],
 					 'father' 		=> $_POST['father'],
 					 'present_address' => $_POST['present_address'],
-					 'user_img' 	=> $img_name
+					 'user_img' 	=> $img_name,
+					 'password'		=> password_hash($password, PASSWORD_BCRYPT)
 				 );
 				
 				/**
@@ -169,29 +171,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
 			}
 		}
 	} // reg_usr
-
-
-	if($action == "show_data"){
-		$cond = array(
-		"return_type"=>"single",
-		//"order_by"=>"id",
-		//"order_type"=>"DESC",
-		"where" => array( "reg_num" => $reg_num )
-		);
-		$users = $usr->getRows('users', $cond);
-        $json = json_encode($users);
-        echo $json;     
-	} // show data
+	else 
 	
+	/**
+	* This is logged in checking section
+	*/
 	if($action == "check_login"){
-		if(isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] == true){
-			echo json_encode($_SESSION["loggedUserData"]);
+		if(isset($_SESSION["isLoggedIn"]) && $_SESSION["isLoggedIn"] = true){
+			$data["isLoggedIn"] = true;
 		}else{
-		   
+			$data["isLoggedIn"] = false;
+			$data["user"] = null;
+			$_SESSION = array();
+			session_destroy();
 		}
-	}
+		/**
+		* if user logged in then fetch data from database
+		*/
+		if($data["isLoggedIn"]){
+			$conditions = array(
+				"return_type" => "single",
+				"where" => array(
+					"reg_num" => $_SESSION["reg_num"]
+				)
+			);
+			$userData = $usr->getRows($tblName, $conditions);
+			$data["user"] = $userData;
+		}
+		echo json_encode($data);
+	} //check login
 	
-	
-	////////////////////
-
 } // post request

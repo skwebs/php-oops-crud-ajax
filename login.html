@@ -116,6 +116,16 @@
         </button>
         <div class="menuContent collapse navbar-collapse collapse navbar-collapse " id="navbarSupportedContent">
           <ul class="navbar-nav ml-auto">
+            <!-- user specified dropdown -->
+            <li class="nav-item dropdown userDd bg-primary d-none">
+              <a class="nav-link dropdown-toggle text-light" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Student Portal</a>
+              <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="#">Profile</a>
+                <a class="dropdown-item" href="#">Payment</a>
+                <a class="dropdown-item" href="#">Result</a>
+              </div>
+            </li>
+            <!--// user specified dropdown -->
             <li class="nav-item active">
               <a class="nav-link" href="./">Home <span class="sr-only">(current)</span></a>
             </li>
@@ -151,6 +161,42 @@
     </nav>
   </header>
   <main>
+    <!-- main contents should be below -->
+    <div class="container py-5 px-4">
+      <div class="row">
+        <div class="col-md-7 mx-auto">
+          <div class="card shadow">
+            <div class="card-header p-3">
+              <p class="h3 m-0 text-center text-muted">Login Page</p>
+            </div>
+            <div class="card-body p-4">
+              <p class="d-none h3 mb-4 text-center text-muted">Login Page</p>
+              <form action="login_process.php" method="post" class="form-float form-float-box">
+                <input type="hidden" id="action" name="action" value="login_user">
+                <div class="form-group ">
+                  <input value="1606342450" name="reg_num" id="reg_num" type="text" class="inp form-control form-control-lg" data-field-name="Registration Number" title="Only 10 digit numeric characters allowed." data-toggle="tooltip" data-title="Only 10 digits numeric characters are allowed." autofocus="autofocus" placeholder=" " required oninput="validateInp(this)" pattern="^[0-9]{10}$">
+                  <label for="reg_num" class="form_label">Registration Number</label>
+                </div>
+                <div class="form-group">
+                  <input name="dob" id="dob" type="text" class="inp form-control form-control-lg" data-field-name="Date of Birth" title="Date of birth is required field. Please select an option." data-title="Please must select your <strong>date of birth</strong>." placeholder=" " required oninput="validateInp(this)" onchange="validateInp(this)" pattern="^(?:(?:31(\/|-|\.)(?:0?[13578]|1[02]))\1|(?:(?:29|30)(\/|-|\.)(?:0?[13-9]|1[0-2])\2))(?:(?:1[6-9]|[2-9]\d)?\d{2})$|^(?:29(\/|-|\.)0?2\3(?:(?:(?:1[6-9]|[2-9]\d)?(?:0[48]|[2468][048]|[13579][26])|(?:(?:16|[2468][048]|[3579][26])00))))$|^(?:0?[1-9]|1\d|2[0-8])(\/|-|\.)(?:(?:0?[1-9])|(?:1[0-2]))\4(?:(?:1[6-9]|[2-9]\d)?\d{2})$">
+                  <label for="dob" class="">Date of Birth</label>
+                </div>
+                <!--
+            <div class="form-group">
+            <input name="dob" id="dob" type="text" class="inp form-control form-control-lg" data-field-name="Password" title="Use your Date of birth as password in DDMMYYYY format." data-title="Use your Date of Birth as password in DDMMYYYY format." placeholder=" " required oninput="validateInp(this)" onchange="validateInp(this)" pattern="^[0-3][0-9][01][0-9][2][0][0-3][0-9]$">
+            <label for="dob">Password</label>
+            <small class="text-small text-muted" >DoB as password in DDMMYYYY format.</small>
+            </div>
+            -->
+                <input type="submit" name="submit" class="submit btn btn-success" value="Login" />
+                <input type="reset" name="submit" class="submit btn btn-outline-secondary ml-2" />
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!--// main contents should be above -->
   </main>
   <footer class="bg-dark footer text-muted">
     <!-- footer social icons section -->
@@ -186,19 +232,22 @@
       <hr style="max-width:300px;" class="bg-muted my-1 w-50 mx-auto d-md-none"> <span class="d-block d-md-inline"> Designed &amp; Developed by <a href="https://skwebs.github.io">SKWebs</a></span> </section>
     <!-- // copyright section -->
   </footer>
-  <!-- // footer social icons section -->
-  <!-- extra -->
+  <!-- // footer section -->
+  <!--::: HELPER COMPONENTS BELOW :::-->
+  <!-- Preloader -->
   <div class="preloader"> <img class="preloader__img" src="./assets/img/ama/ama-old-128x128.png" alt="Children Future Coaching Logo">
     <div class="rounder"></div>
   </div>
+  <!--// preloader -->
+  <!-- Sidebar Components -->
   <div class="sidebar-overlay"></div>
+  <!-- sidebar section -->
   <section class="sidebar bg-light">
+    <!-- sidebar header -->
     <div class="sidebar-header border-bottom px-2 py-3">
-      <div class="d-flex user_details"> <img width="70" class="filter-gray opacity25 my-auto border border-secondary rounded-circle" style="border-radius:50%;" src="./assets/img/ama/ama-old-128x128.png">
+      <!-- default/guest user section-->
+      <div class="d-flex user_details guest-user"> <img width="70" class="filter-gray opacity25 my-auto border border-secondary rounded-circle" style="border-radius:50%;" src="./assets/img/ama/ama-old-128x128.png">
         <div class="flex-grow-1 pl-2 text-muted ">
-          <div class="user_text d-none">
-            <div class="d-flex align-items-center"> <a href="#" class="d-inline-block">Login</a> </div>
-          </div>
           <div class="user_text">
             <div class="font-weight-bolder mb-1"> Guest User </div>
             <table>
@@ -211,42 +260,45 @@
           </div>
         </div>
       </div>
-      <!---->
-      <div class="d-flex user_details"> <img width="70" class="filter-gray opacity25 my-auto border border-secondary rounded-circle" style="border-radius:50%;" src="./assets/img/ama/ama-old-128x128.png">
+      <!--// default/guest user section-->
+      <!-- Logged in user section -->
+      <div class="d-none user_details logged-user"> <img width="70" id="usrProfImg" class="my-auto border border-secondary rounded-circle" style="border-radius:50%;" src="">
         <div class="flex-grow-1 pl-2 text-muted ">
-          <div class="user_text d-none">
-            <div class="d-flex align-items-center"> <a href="#" class="d-inline-block">Login</a> </div>
-          </div>
           <div class="user_text">
-            <div class="font-weight-bolder mb-1"> Satish Sharma </div>
+            <div class="font-weight-bolder mb-1" id="usrName"> </div>
             <table>
               <tr>
                 <td>Reg. No.</td>
-                <td>:&nbsp</td>
-                <td>1602596722 </td>
+                <td>&nbsp;:&nbsp;</td>
+                <td id="usrRegNum"> </td>
               </tr>
               <tr>
-                <td>Last Login</td>
-                <td>:&nbsp</td>
-                <td>2020-10-15 12:27:11</td>
+                <td>Update on</td>
+                <td>&nbsp;:&nbsp;</td>
+                <td id="lastUpdate"></td>
               </tr>
             </table>
           </div>
         </div>
       </div>
-      <!---->
+      <!--// Logged in user section -->
     </div>
+    <!--// sidebar header -->
     <div class="clearfix"></div>
     <div class="sidebar-menu">
+      <!-- main nav cloned components, appends in below navbar class -->
       <ul class="navbar"></ul>
+      <!--::: siidebar social section :::-->
       <div class="sidebar-social d-flex justify-content-center">
         <a class="sb-fb" href="https://facebook.com/AnshuMemorialAcademy"> <i class="fa fa-facebook"></i> </a>
         <a class="sb-tw" href="https://mobile.twitter.com/AnshuMemorial"> <i class="fa fa-twitter"></i> </a>
         <a class="sb-insta" href="https://www.instagram.com/anshumemorial/"> <i class="fa fa-instagram"></i> </a>
         <a class="sb-yt" href="https://www.youtube.com/channel/UC-Y-AzTd9CCYbbUqAthmHVg"> <i class="fa fa-youtube"></i> </a>
       </div>
+      <!--// siidebar social section -->
     </div>
   </section>
+  <!--// sidebar section-->
   <script defer src="./assets/js/onload.js"></script>
   <script defer src="./assets/js/sidebar.js?v2"></script>
   <script defer src="./assets/js/init.js"></script>
@@ -255,7 +307,113 @@
       Waves.attach('.nav-link', ['waves-block']);
       Waves.attach('.dropdown-item', ['waves-block']);
       //Waves.attach('.nav-link', ['waves-block', 'waves-light']);
-    })()
+      $.ajax("action2.php", {
+        method: "post",
+        data: { action: "check_login" },
+        //	processData: false,
+        //	contentType: false,
+        //	dataType:'json',
+        success: function(res) {
+          //alert(res)
+          //alert(JSON.stringify(res));
+          if (res.isLoggedIn) {
+            $(".userDd .nav-link").text(res.first_name + " " + res.last_name).parent().removeClass("d-none");
+            $(".guest-user").removeClass("d-flex").addClass("d-none");
+            $(".logged-user").removeClass("d-none").addClass("d-flex");
+            $("#usrName").text(res.first_name + " " + res.mid_name + " " + res.last_name);
+            $("#usrProfImg").attr("src", "./user_img/" + res.user_img);
+            $("#usrRegNum").text(res.reg_num);
+            $("#lastUpdate").text(res.modified);
+            //alert(res.modified)
+          } else {
+            //alert("Please login fitst!")
+          }
+        },
+        error: function(err) {
+          alert("err: " + JSON.stringify(err))
+        }
+        //,complete: function(e) {
+        //	alert("complete: " + JSON.stringify(e));
+        //}
+      });
+
+      window.addEventListener('load', function() {
+        // datepicker
+        $("#dob").datepicker({
+          changeMonth: true,
+          changeYear: true,
+          showAnim: "fadeIn",
+          dateFormat: "dd-mm-yy",
+          yearRange: "c-15:c+0",
+          // defaultDate:"-3",
+          showButtonPanel: false
+        }).on({
+          focus: function() {
+            let _this = $(this);
+            _this.attr('readonly', 'true');
+          },
+          blur: function() {
+            $(this).removeAttr('readonly', 'false');
+          }
+        });
+        $("#regForm .form-control, #regForm .form-select").on({
+          keyup: function() {
+            var _this = $(this);
+            if (!(new RegExp(_this.attr("pattern")).test(_this.val()))) {
+              _this.tooltip("show");
+            } else {
+              _this.tooltip("hide");
+            }
+          }
+        });
+        $('[data-toggle="tooltip"]').tooltip();
+      }, false);
+    })();
+
+    function validateForm(x) {
+      // This function deals with validation of the form fields
+      var y, i, valid = true;
+      //x = document.getElementsByClassName("tab");
+      y = x.querySelectorAll(".inp");
+      // A loop that checks every input field in the current tab:
+      for (i = 0; i < y.length; i++) {
+        // If a field is empty...
+        if (y[i].checkValidity() === false) {
+          //if (y[i].value == "") {
+          if (y[i].getAttribute("type") == "file") {
+            y[i].click();
+          } else {
+            y[i].focus();
+          }
+          //alert(JSON.stringify(y[i].getAttribute("type")));
+          Swal.fire("Reuired", y[i].getAttribute("data-title"))
+          // add an "invalid" class to the field:
+          y[i].className += " is-invalid";
+          // and set the current valid status to false
+          valid = false;
+          return false;
+        } else {
+          y[i].className.replace(" is-invalid", "");
+        }
+      }
+      // If the valid status is true, mark the step as finished and valid:
+      if (valid) {
+        //	document.getElementsByClassName("step")[currentTab].className += " finish";
+      }
+      return valid; // return the valid status
+    }
+
+    function validateInp(x) {
+      if (x.checkValidity() === true) {
+        x.classList.remove("is-invalid");
+        x.classList.add("is-valid");
+        //x.
+      } else {
+        x.classList.remove("is-valid");
+        x.classList.add("is-invalid");
+        //x.
+      }
+    }
   </script>
 </body>
 

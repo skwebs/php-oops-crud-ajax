@@ -56,7 +56,7 @@
 -o-border-image: linear-gradient(to right, hsla(0,100%,0%,0),hsla(0,100%,0%,0.5),hsla(0,100%,0%,0)) 100 5% ;
 border-image: -webkit-gradient(linear, left top, right top, from(hsla(0,100%,0%,0)),color-stop(hsla(0,100%,0%,0.5)),to(hsla(0,100%,0%,0))) 100 5% ;
 border-image: linear-gradient(to right, hsla(0,100%,0%,0),hsla(0,100%,0%,0.5),hsla(0,100%,0%,0)) 100 5% ;
-*/;
+*/
 }
 
 .sidebar-menu .nav-item.active {
@@ -225,5 +225,5 @@ user_text div {
 }
 
 .small-txt, .user_text table td {
-	font-size: .75rem;
+	font-size: .7rem;
 }

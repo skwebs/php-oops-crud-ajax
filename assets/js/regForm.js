@@ -98,7 +98,7 @@ $(function() {
 			let fd = new FormData(form);
 			fd.delete("select-img");
 			fd.append('cropped_image', croppedImgBlobData, 'user.' + mimeType.slice(6));
-			$.ajax("action.php", {
+			$.ajax("action2.php", {
 				method: "post",
 				data: fd,
 				processData: false,
